@@ -58,6 +58,7 @@
     else if ([topOfStack isKindOfClass:[NSString class]])
     {
         NSString *operation = topOfStack;
+        //math here;
         if ([operation isEqualToString:@"+"]) {
             result = [self popOperandOffProgramStack:stack] +
             [self popOperandOffProgramStack:stack];
@@ -70,6 +71,14 @@
         } else if ([operation isEqualToString:@"/"]) {
             double divisor = [self popOperandOffProgramStack:stack];
             if (divisor) result = [self popOperandOffProgramStack:stack] / divisor;
+        } else if ([@"sqrt" isEqualToString:operation]) {
+            result = sqrt([self popOperandOffProgramStack:stack]);
+        } else if ([@"sin" isEqualToString:operation]) {
+            result = sin([self popOperandOffProgramStack:stack]);
+        } else if ([@"cos" isEqualToString:operation]) {
+            result = cos([self popOperandOffProgramStack:stack]);
+        } else if ([@"∏" isEqualToString:operation]) {
+            result = 3.14;
         }
     }
     
